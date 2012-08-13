@@ -1,0 +1,5 @@
+//= require "../vendor/codemirror2/codemirror"
+//= require "../vendor/codemirror2/xml"
+//= require "../vendor/codemirror2/css"
+//= require "../vendor/codemirror2/javascript"
+//= require "../vendor/codemirror2/htmlmixed"
