@@ -5474,7 +5474,8 @@ jQuery.expr[":"].host = function(R, S, cb) {
 	}
 	function Fc(o, u) {
 		u = Gc(u);
-		if (u.type == "keydown") if (u.shiftKey == false && u.ctrlKey && u.which == 39 && o.id == "javascript") {
+		if (u.type == "keydown") 
+		if (u.shiftKey == false && u.ctrlKey && u.which == 39 && o.id == "javascript") {
 			c.html.focus();
 			u.stop()
 		} else if (u.shiftKey == false && u.ctrlKey && u.which == 37 && o.id == "html") {
@@ -5486,6 +5487,13 @@ jQuery.expr[":"].host = function(R, S, cb) {
 		} else if (u.metaKey && u.which == 50) {
 			$("#control a.preview").click();
 			u.stop()
+		//changhwa
+		} else if (u.metaKey && u.which == 51){
+			$("#login").click();
+			u.stop();
+		} else if (u.metaKey && u.which == 76){
+			location.href='http://'+document.domain+'/list';
+			u.stop();
 		} else if (u.which == 191 && u.shiftKey && u.metaKey) {
 			fc.toggleClass("keyboardHelp");
 			qc = fc.is(".keyboardHelp");
@@ -5529,7 +5537,8 @@ jQuery.expr[":"].host = function(R, S, cb) {
 			else if (ra == "script") E.match(/\s*\/\//) !== null ? o.setLine(M.line, E.replace(/(\s*)\/\/\s?/, "$1")) : o.setLine(M.line, "// " + E);
 			else E.match(/\s*<!--/) !== null ? o.setLine(M.line, E.replace(/<!--\s?/, "").replace(/\s?--\>/, "")) : o.setLine(M.line, "<!-- " + E + " --\>");
 			u.stop()
-		}
+			//changhwa
+		} 
 		if (u.stopping) return false
 	}
 	function Gc(o) {
