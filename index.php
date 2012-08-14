@@ -84,10 +84,12 @@ if ($code_id) {
   </div>
   <div class="help">
     <ul class="flat">
+      <li><a id="login"><b>Login</b></a></li>
       <li><a target="_blank" href="http://jsbin.tumblr.com">Help &amp; tutorials</a></li>
       <li class="prefsButton"><a href="#"><img src="/images/gear.png"></a></li>
     </ul>
   </div>
+  <div id="loginDiv" style="display:none;"></div>
 </div>
 <div id="bin" class="stretch" style="opacity: 0; filter:alpha(opacity=0);">
   <div id="source" class="binview stretch">
@@ -210,6 +212,19 @@ _gaq.push(['_trackPageview']);
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
 })();
+</script>
+<script>/*
+$(function(){
+  $("#login").click(function(){
+    alert('a.login 들어와지나..??');
+  });
+});*/
+</script>
+<script>
+function login(){
+  jsbin.home($("#usrId").val(),$("#passwd").val());
+}
+
 </script>
 <?php endif ?>
 </body>

@@ -11511,6 +11511,7 @@ jQuery.expr[":"].host = function(R, S, cb) {
 				forbind.join(aa, ib.getItem("streamwritekey") || cb)
 			}
 		});
+
 		this.home = function(j, m) {
 			alert('this.home');
 			if (!m) {
@@ -14276,8 +14277,6 @@ jQuery.expr[":"].host = function(R, S, cb) {
 	});
 	$("a.save").click(function(o) {
 		//changhwa
-
-		alert('ssssssssss');
 		o.preventDefault();
 		cd("save", R.location.pathname.indexOf("/edit") !== -1);
 		return false
@@ -14291,6 +14290,31 @@ jQuery.expr[":"].host = function(R, S, cb) {
 		o.submit();
 		return false
 	});
+	$("#login").click(function(){
+
+		$("#loginDiv").hide();
+		
+		var offset = $("#login").offset();
+		var left = offset.left;
+		var top = offset.top;
+		$("#loginDiv").append('<div id="idForm">')
+						.append('<input type="text" id="usrId" placeholder="Id" />')
+						.append('</div>')
+						.append('<div id="pwForm">')
+						.append('<input type="password" id="passwd" placeholder="Password" />')
+						.append('</div>')
+						.append('<div id="btForm">')
+						.append('<a id="btnLogin" onclick="login()"><button> submit </button></a>')
+						.append('</div>');
+		$("#loginDiv").css({
+			"top": top+30,
+			"left": left-40,
+			"position": "absolute"
+		}).show();
+
+	});
+
+
 	gc.keydown(function(o) {
 		if (o.metaKey && o.which == 83) if (o.shiftKey == false) {
 			$("#save").click();
