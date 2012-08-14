@@ -27,7 +27,7 @@ function getRelativeTime($date) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
 <meta charset=utf-8 />
 <title><?php echo $name ?>'s bins</title>
@@ -212,6 +212,7 @@ foreach ($order as $key => $value) {
     }
 
     $firstTime = $bin['url'] != $last;
+    $commit = $bin['commit'];
 
     if ($firstTime && $last !== null) : ?>
   <tr data-type="spacer"><td colspan=3></td></tr>
@@ -219,7 +220,7 @@ foreach ($order as $key => $value) {
   <tr data-url="<?=$url?>">
     <td class="url"><a href="<?=$url?>edit"><span<?=($firstTime ? ' class="first"' : '') . '>' . $bin['url']?>/</span><?=$bin['revision']?>/</a></td>
     <td class="created"><a pubdate="<?=$bin['created']?>" href="<?=$url?>edit"><?=getRelativeTime($bin['created'])?></a></td>
-    <td class="title"><a href="<?=$url?>edit"><?=substr($title, 0, 200)?></a></td>
+    <td class="title"><a href="<?=$url?>edit"><?=$commit?></a></td>
   </tr>
 <?php
     $last = $bin['url'];
