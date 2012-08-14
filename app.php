@@ -136,6 +136,7 @@ if (!$action) {
   $javascript = @$_POST['javascript'];
   $html = @$_POST['html'];
   $method = @$_POST['method'];
+  $commitLog = @$_POST['commitLog'];
   $stream = isset($_POST['stream']) ? true : false;
   $streaming_key = '';
 
@@ -167,7 +168,7 @@ if (!$action) {
       $revision++;
     }
 
-    $sql = sprintf('insert into sandbox (javascript, html, created, last_viewed, url, revision) values ("%s", "%s", now(), now(), "%s", "%s")', mysql_real_escape_string($javascript), mysql_real_escape_string($html), mysql_real_escape_string($code_id), mysql_real_escape_string($revision));
+    $sql = sprintf('insert into sandbox (javascript, html, created, last_viewed, url, revision, commit) values ("%s", "%s", now(), now(), "%s", "%s", "%s")', mysql_real_escape_string($javascript), mysql_real_escape_string($html), mysql_real_escape_string($code_id), mysql_real_escape_string($revision), mysql_real_escape_string($commitLog));
 
     // a few simple tests to pass before we save
     if (($html == '' && $html == $javascript)) {
@@ -495,7 +496,7 @@ function generateCodeId($tries = 0) {
 }
 
 function generateURL() {
-	// generates 5 char word
+  // generates 5 char word
   $vowels = str_split('aeiou');
   $const = str_split('bcdfghjklmnpqrstvwxyz');
   
@@ -508,7 +509,7 @@ function generateURL() {
     } 
   }
 
-	return $word;
+  return $word;
 }
 
 function googleAnalytics() {
